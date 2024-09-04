@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alura Books</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Alura Books</h1>
+            <img src="simbolo-escola.png" alt="Símbolo da Escola" class="logo">
+        </div>
+        <input type="text" id="search-bar" placeholder="Pesquisar livros...">
+    </header>
+
+    <main>
+        <div id="search-result" class="not-found">
+            Nenhum livro encontrado
+        </div>
+
+        <section class="book-section">
+            <img src="quatro-vidas-de-um-cachorro.jpg" alt="Quatro Vidas de um Cachorro" class="book-image">
+            <div class="synopsis">
+                <p>Narrado pelo próprio animal, Quatro vidas de um cachorro aborda a questão mais básica da vida: por que estamos aqui? Emocionante e com boas doses de humor, este é um livro para todas as idades, que mostra o olhar de um cão sobre o relacionamento entre as pessoas e os laços eternos entre os seres humanos e seus animais.</p>
+            </div>
+        </section>
+
+        <section class="book-section">
+            <img src="malala.jpg" alt="Malala" class="book-image">
+            <div class="synopsis">
+                <p>A história de uma família exilada pelo terrorismo, da luta pelo direito à educação e dos obstáculos à valorização da mulher. Acompanha a infância de Malala, seus primeiros anos escolares e a vida sob o Talibã, numa região marcada pela desigualdade. Autobiografia de Malala escrita especialmente para o público jovem.</p>
+            </div>
+        </section>
+
+        <section class="book-section">
+            <img src="crepusculo.jpg" alt="Crepúsculo 1" class="book-image">
+            <div class="synopsis">
+                <p>Isabella Swan chega à nublada e chuvosa cidadezinha de Forks - último lugar onde gostaria de viver. Tenta se adaptar à vida provinciana na qual aparentemente todos se conhecem, lidar com sua constrangedora falta de coordenação motora e se habituar a morar com um pai com quem nunca conviveu.</p>
+            </div>
+        </section>
+
+        <section class="book-section">
+            <img src="a-garota-do-lago.jpg" alt="A Garota do Lago" class="book-image">
+            <div class="synopsis">
+                <p>Kelsey Castle é uma jornalista investigativa que volta a trabalhar depois de algumas semanas de afastamento, devido a um ataque que sofreu durante sua rotina de corrida. Com o objetivo de evitar o constrangimento diante os olhares dos colegas, seu chefe a envia para a cidade de Summit Lake, para investigar a história do assassinato de Becca Eckersley, uma estudante de Direito que fora morta de forma cruel na casa de sua família.</p>
+            </div>
+        </section>
+
+        <section class="book-section">
+            <img src="cinco-passos-de-voce.jpg" alt="A Cinco Passos de Você" class="book-image">
+            <div class="synopsis">
+                <p>Stella não é uma adolescente comum. Por conta da fibrose cística, doença crônica que impede que seus pulmões funcionem como deveriam, ela vive a maior parte do tempo no hospital, seguindo à risca seu tratamento na esperança de conseguir um transplante.</p>
+            </div>
+        </section>
+
+        <section class="book-section">
+            <img src="o-deus-que-destroi-sonhos.jpg" alt="O Deus que Destrói Sonhos" class="book-image">
+            <div class="synopsis">
+                <p>Neste livro, Rodrigo Bibo, do podcast Bibotalk, apresenta o caminho do discipulado, o meio para “sonhar” o que Deus já planejou. Aprenda a enxergar e seguir a vontade soberana de Deus expressa em Sua Palavra, tendo uma vida de serviço dedicada a Cristo.</p>
+            </div>
+        </section>
+
+        <section class="book-section">
+            <img src="e-assim-que-acaba.jpg" alt="É Assim que Acaba" class="book-image">
+            <div class="synopsis">
+                <p>Quando os dois se apaixonam, Lily se vê no meio de um relacionamento turbulento que não é o que ela esperava. Mas será que ela conseguirá enxergar isso, por mais doloroso que seja? É assim que acaba, é uma narrativa poderosa sobre a força necessária para fazer as escolhas certas nas situações mais difíceis.</p>
+            </div>
+        </section>
+
+        <button onclick="topFunction()" id="back-to-top" title="Voltar ao Topo">Voltar ao Topo</button>
+    </main>
+
+    <footer>
+        <p>Naára & Emanuelly</p>
+    </footer>
+
+    <script>
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        const searchBar = document.getElementById('search-bar');
+        const searchResult = document.getElementById('search-result');
+
+        searchBar.addEventListener('input', function() {
+            const query = searchBar.value.toLowerCase();
+            const books = document.querySelectorAll('.book-section');
+            let found = false;
+
+            books.forEach(book => {
+                if (book.innerText.toLowerCase().includes(query)) {
+                    book.style.display = 'block';
+                    found = true;
+                } else {
+                    book.style.display = 'none';
+                }
+            });
+
+            if (!found) {
+                searchResult.style.display = 'block';
+            } else {
+                searchResult.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
